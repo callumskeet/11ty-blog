@@ -13,18 +13,19 @@
     "license": "ISC",
     "devDependencies": {
         "@11ty/eleventy": "^2.0.1",
+        "@11ty/eleventy-plugin-bundle": "^1.0.5",
         "@bookshop/browser": "3.9.0",
         "@bookshop/eleventy-engine": "3.9.0",
         "@bookshop/generate": "3.9.0",
         "@shopify/prettier-plugin-liquid": "^1.4.2",
         "autoprefixer": "^10.4.17",
         "postcss": "^8.4.35",
+        "postcss-import": "^16.0.0",
+        "postcss-import-ext-glob": "^2.1.1",
         "prettier": "^3.2.5",
         "tailwindcss": "^3.4.1"
     },
     "dependencies": {
-        "@11ty/eleventy-plugin-bundle": "^1.0.5",
-        "@11ty/eleventy-plugin-webc": "^0.11.2",
         "@bookshop/eleventy-bookshop": "3.9.0"
     }
 }
