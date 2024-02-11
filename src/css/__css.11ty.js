@@ -1,7 +1,3 @@
-// This file handles the CSS build.
-// It will run Sass and compile all styles defined in the main entry file.
-
-// main entry point name
 const ENTRY_FILE_NAME = 'main.css';
 
 const path = require('node:path');
@@ -39,6 +35,7 @@ module.exports = class {
     cleanup(newPath) {
         if (oldBundles.size) {
             for (const path of oldBundles) {
+                if (path === newPath) continue;
                 try {
                     fs.rmSync(`_site/${path}`);
                 } catch {}
