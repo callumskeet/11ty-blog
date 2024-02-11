@@ -1,0 +1,5 @@
+source: src
+
+_structures:
+  content_blocks:
+    style: modal

@@ -3,13 +3,17 @@ title: Page
 metadata:
     helmet:
 ---
+{% css "tailwind" %}
+@tailwind base; @tailwind components; @tailwind utilities;
+{% endcss %}
 <!doctype html>
 <html lang='en'>
     <head>
         <meta charset='UTF-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <title>Document</title>
-        <link rel='stylesheet' href='/css/main.css'>
+        <link rel='stylesheet' href='{% getBundleFileUrl "css" "tailwind" %}'>
+        <link rel='stylesheet' href='{% getBundleFileUrl "css" %}'>
         {%- if metadata.helmet %}
             {{ helmet }}
         {%- endif %}
