@@ -3,3 +3,9 @@ source: src
 _structures:
   content_blocks:
     style: modal
+
+_inputs:
+  page_components:
+    type: array #1
+    options:
+      structures: _structures.content_blocks
