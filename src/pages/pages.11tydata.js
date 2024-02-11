@@ -1,6 +1,6 @@
 module.exports = function () {
     return {
-        layout: 'layouts/base',
+        layout: 'layouts/bookshop',
         tags: ['pages'],
         content_blocks: [],
         eleventyComputed: {
