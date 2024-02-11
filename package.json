@@ -5,7 +5,8 @@
     "main": "index.js",
     "scripts": {
         "build": "eleventy",
-        "dev": "eleventy --serve"
+        "dev": "npm run clean; eleventy --serve",
+        "clean": "rm -rf _site"
     },
     "keywords": [],
     "author": "",

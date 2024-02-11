@@ -1,0 +1,9 @@
+{% unless env_bookshop_live %}
+    {% css %}
+    .c-sample > p { font-weight: 800; }
+    {% endcss %}
+{% endunless %}
+
+<div class='c-sample container'>
+    <p>{{ text }}</p>
+</div>
