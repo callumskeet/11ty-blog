@@ -44,7 +44,7 @@ module.exports = (eleventyConfig) => {
         return output.css;
     });
 
-    eleventyConfig.addLiquidTag('renderall', function (liquidEngine) {
+    eleventyConfig.addLiquidTag('renderGlob', function (liquidEngine) {
         return {
             parse: function (tagToken, _remainingTokens) {
                 this.glob = tagToken.args;
