@@ -1,3 +1,5 @@
+const path = require('node:path');
+
 module.exports = function () {
     return {
         layout: 'layouts/bookshop',
@@ -5,10 +7,15 @@ module.exports = function () {
         content_blocks: [],
         eleventyComputed: {
             permalink: function ({ page }) {
-                return (
-                    this.url(page.filePathStem)
-                        .replace('/index', '/')
-                        .replace('/pages/', '/') + '/'
+                let p = path.relative('./src/pages', this.url(page.inputPath));
+                let parsed = path.parse(p);
+                parsed.root = '/';
+                if (parsed.name === 'index') parsed.name = '';
+                return path.join(
+                    parsed.root,
+                    parsed.dir,
+                    parsed.name,
+                    path.sep,
                 );
             },
         },
