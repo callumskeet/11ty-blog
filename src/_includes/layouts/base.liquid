@@ -9,9 +9,7 @@ metadata:
         <meta charset='UTF-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <title>Document</title>
-        {%- for css in collections.css %}
-            <link rel='stylesheet' href='{{ css.data.permalink }}'>
-        {%- endfor %}
+        <link rel='stylesheet' href='{% getBundleFileUrl "css" %}'>
         {%- if metadata.helmet %}
             {{ helmet }}
         {%- endif %}
@@ -21,3 +19,11 @@ metadata:
         {{ content }}
     </body>
 </html>
+
+{% capture css %}
+{% renderall 'css/*.css' %}
+{% renderall 'components/**/*.css' %}
+{% endcapture %}
+{% css %}
+{{ css | postcss }}
+{% endcss %}
