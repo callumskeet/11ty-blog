@@ -51,6 +51,7 @@ module.exports = (eleventyConfig) => {
 
     // --- plugins
     eleventyConfig.addPlugin(bundler, {
+        hoistDuplicateBundlesFor: ['css', 'js'],
         transforms: [
             async function (content) {
                 if (this.type === 'css') {
