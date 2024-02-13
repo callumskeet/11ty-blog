@@ -1,5 +1,7 @@
 {
     "tabWidth": 4,
     "singleQuote": true,
+    "trailingComma": "all",
+    "quoteProps": "consistent",
     "plugins": ["@shopify/prettier-plugin-liquid"]
 }

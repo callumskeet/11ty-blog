@@ -1,7 +1,7 @@
 source: src
 
 _inputs:
-  page_components:
-    type: array #1
-    options:
-      structures: _structures.content_blocks
+    page_components:
+        type: array #1
+        options:
+            structures: _structures.content_blocks
