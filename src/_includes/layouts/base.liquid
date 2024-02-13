@@ -9,6 +9,7 @@ metadata:
         <meta charset='UTF-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <title>Document</title>
+        <link rel='stylesheet' href='{% getBundleFileUrl "css" 'tailwind' %}'>
         <link rel='stylesheet' href='{% getBundleFileUrl "css" %}'>
         {%- if metadata.helmet %}
             {{ helmet }}
@@ -19,8 +20,9 @@ metadata:
         {{ content }}
     </body>
 </html>
-
+{% css 'tailwind' %}
+{% renderGlob 'assets/tailwind.css' %}
+{% endcss %}
 {% css %}
-{% renderGlob 'assets/*.css' %}
 {% renderGlob 'components/**/*.css' %}
 {% endcss %}
