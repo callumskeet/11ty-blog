@@ -3,13 +3,7 @@ const postcss = require('postcss');
 const tailwindcss = require('tailwindcss');
 const bookshop = require('@bookshop/eleventy-bookshop');
 const bundler = require('@11ty/eleventy-plugin-bundle');
-const { EleventyRenderPlugin } = require('@11ty/eleventy');
-const postcssImport = require('postcss-import');
-const postcssImportGlob = require('postcss-import-ext-glob');
-const fs = require('node:fs');
-const crypto = require('node:crypto');
 const fg = require('fast-glob');
-const path = require('node:path');
 
 /** @param {import('@11ty/eleventy').UserConfig} eleventyConfig */
 module.exports = (eleventyConfig) => {
