@@ -11,39 +11,8 @@ const crypto = require('node:crypto');
 const fg = require('fast-glob');
 const path = require('node:path');
 
-/** @returns {Promise<import('postcss').Result>} output */
-async function processCss(content, options = {}) {
-    const output = await postcss([
-        postcssImportGlob(),
-        postcssImport(),
-        tailwindcss(),
-        autoprefixer(),
-    ]).process(content, options);
-    return output;
-}
-
-function getHash(input) {
-    const secret = 'SALT';
-    const md5Hasher = crypto.createHmac('md5', secret);
-    return md5Hasher.update(input).digest('hex');
-}
-
-Object.assign(Promise, {
-    allFlat(array) {
-        return Promise.all(array).then((res) => res.flatMap((x) => x));
-    },
-});
-
 /** @param {import('@11ty/eleventy').UserConfig} eleventyConfig */
 module.exports = (eleventyConfig) => {
-    // --- css
-    eleventyConfig.addAsyncFilter('postcss', async function (css) {
-        const output = await postcss([tailwindcss(), autoprefixer()]).process(
-            css,
-        );
-        return output.css;
-    });
-
     eleventyConfig.addLiquidTag('renderGlob', function (liquidEngine) {
         return {
             parse: function (tagToken, _remainingTokens) {
@@ -64,7 +33,20 @@ module.exports = (eleventyConfig) => {
     });
 
     // --- plugins
-    eleventyConfig.addPlugin(bundler);
+    eleventyConfig.addPlugin(bundler, {
+        transforms: [
+            async function (content) {
+                if (this.type === 'css') {
+                    const output = await postcss([
+                        tailwindcss(),
+                        autoprefixer(),
+                    ]).process(content);
+                    return output.css;
+                }
+                return content;
+            },
+        ],
+    });
     eleventyConfig.addPlugin(
         bookshop({
             bookshopLocations: ['src/_includes'],

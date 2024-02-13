@@ -20,10 +20,7 @@ metadata:
     </body>
 </html>
 
-{% capture globalCSS %}
-{% renderGlob 'css/*.css' %}
-{% renderGlob 'components/**/*.css' %}
-{% endcapture %}
 {% css %}
-{{ globalCSS | postcss }}
+{% renderGlob 'assets/*.css' %}
+{% renderGlob 'components/**/*.css' %}
 {% endcss %}
