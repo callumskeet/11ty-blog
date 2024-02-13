@@ -1,0 +1,18 @@
+{% css %}
+<style>
+    .switcher > * {
+        flex-grow: 1;
+        flex-basis: calc((30rem - 100%) * 999);
+    }
+
+    .switcher > :nth-last-child(n + 7),
+    .switcher > :nth-last-child(n + 7) ~ * {
+        flex-basis: 100%;
+    }
+</style>
+{% endcss %}
+
+<div class='switcher flex flex-wrap {{ gap | default: 'gap-1' }}'>
+    {% block -%}
+    {%- endblock %}
+</div>
