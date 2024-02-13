@@ -5,8 +5,8 @@
         flex-basis: calc((30rem - 100%) * 999);
     }
 
-    .switcher > :nth-last-child(n + 7),
-    .switcher > :nth-last-child(n + 7) ~ * {
+    .switcher > :nth-last-child(n + {{ limit | default: 4 | plus: 1 }}),
+    .switcher > :nth-last-child(n + {{ limit | default: 4 | plus: 1 }}) ~ * {
         flex-basis: 100%;
     }
 </style>
@@ -15,4 +15,8 @@
 <div class='switcher flex flex-wrap {{ gap | default: 'gap-1' }}'>
     {% block -%}
     {%- endblock %}
+    <div class='footer'>
+        {% block footer -%}
+        {%- endblock %}
+    </div>
 </div>
