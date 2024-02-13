@@ -34,7 +34,7 @@ module.exports = (eleventyConfig) => {
                     const output = await postcss([
                         tailwindcss(),
                         autoprefixer(),
-                    ]).process(content);
+                    ]).process(content, { from: undefined });
                     return output.css;
                 }
                 return content;
