@@ -1,6 +1,7 @@
 {
     "prettier.configPath": ".prettierrc",
     "files.associations": {
-        "*.css": "tailwindcss"
+        "*.css": "tailwindcss",
+        "*.html": "liquid"
     }
 }
