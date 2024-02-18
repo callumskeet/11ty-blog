@@ -1,19 +1,20 @@
 ---
 layout: layouts/base
 ---
-{% layoutcontent 'partials/switcher', gap: 'gap-2', limit: 6 %}
-<p>Rendered content</p>
-<p>Rendered content</p>
-<p>Rendered content</p>
-<p>Rendered content</p>
-<p>Rendered content</p>
+{% layoutcontent 'partials/switcher', gap: 'gap-2 container prose', limit: 6 %}
+<div>
+    <h1>Blog</h1>
+    <h2>Subtitle</h2>
+</div>
 <p>Rendered content</p>
 {% block footer %}
 <span>in the footer</span>
 {% endblock %}
 {% endlayoutcontent %}
 
-<h1>Outside</h1>
-<h1>Outside</h1>
-<h1>Outside</h1>
-<h1>Outside</h1>
+<div class='container space-y-s'>
+    <h1 class='text-4xl'>Outside</h1>
+    <p class='text-base'>Outside</p>
+    <p class='text-base'>Outside</p>
+    <p class='text-base'>Outside</p>
+</div>

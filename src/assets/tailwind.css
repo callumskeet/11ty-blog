@@ -1,3 +1,76 @@
+:root {
+    --step--2: clamp(0.7901rem, 0.7519rem + 0.1646vi, 0.8889rem);
+    --step--1: clamp(0.8889rem, 0.8458rem + 0.1852vi, 1rem);
+    --step-0: clamp(1rem, 0.9516rem + 0.2083vi, 1.125rem);
+    --step-1: clamp(1.125rem, 1.0705rem + 0.2344vi, 1.2656rem);
+    --step-2: clamp(1.2656rem, 1.2043rem + 0.2637vi, 1.4238rem);
+    --step-3: clamp(1.4238rem, 1.3549rem + 0.2966vi, 1.6018rem);
+    --step-4: clamp(1.6018rem, 1.5242rem + 0.3337vi, 1.802rem);
+    --step-5: clamp(1.802rem, 1.7147rem + 0.3754vi, 2.0273rem);
+}
+
+:root {
+    --space-3xs: clamp(0.25rem, 0.2258rem + 0.1042vi, 0.3125rem);
+    --space-2xs: clamp(0.5rem, 0.4758rem + 0.1042vi, 0.5625rem);
+    --space-xs: clamp(0.75rem, 0.7016rem + 0.2083vi, 0.875rem);
+    --space-s: clamp(1rem, 0.9516rem + 0.2083vi, 1.125rem);
+    --space-m: clamp(1.5rem, 1.4273rem + 0.3125vi, 1.6875rem);
+    --space-l: clamp(2rem, 1.9031rem + 0.4167vi, 2.25rem);
+    --space-xl: clamp(3rem, 2.8547rem + 0.625vi, 3.375rem);
+    --space-2xl: clamp(4rem, 3.8063rem + 0.8333vi, 4.5rem);
+    --space-3xl: clamp(6rem, 5.7094rem + 1.25vi, 6.75rem);
+
+    /* One-up pairs */
+    --space-3xs-2xs: clamp(0.25rem, 0.1289rem + 0.5208vi, 0.5625rem);
+    --space-2xs-xs: clamp(0.5rem, 0.3547rem + 0.625vi, 0.875rem);
+    --space-xs-s: clamp(0.75rem, 0.6047rem + 0.625vi, 1.125rem);
+    --space-s-m: clamp(1rem, 0.7336rem + 1.1458vi, 1.6875rem);
+    --space-m-l: clamp(1.5rem, 1.2094rem + 1.25vi, 2.25rem);
+    --space-l-xl: clamp(2rem, 1.4672rem + 2.2917vi, 3.375rem);
+    --space-xl-2xl: clamp(3rem, 2.4188rem + 2.5vi, 4.5rem);
+    --space-2xl-3xl: clamp(4rem, 2.9344rem + 4.5833vi, 6.75rem);
+
+    /* Custom pairs */
+    --space-s-l: clamp(1rem, 0.5156rem + 2.0833vi, 2.25rem);
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    :root {
+        --grid-max-width: 83.25rem;
+        --grid-gutter: var(
+            --space-xs-l,
+            clamp(0.75rem, 0.1688rem + 2.5vw, 2.25rem)
+        );
+        --grid-columns: 12;
+    }
+
+    .container {
+        max-width: var(--grid-max-width);
+        padding-inline: var(--grid-gutter);
+        margin-inline: auto;
+    }
+
+    .prose h1 {
+        font-size: var(--step-5);
+    }
+
+    .prose h2 {
+        font-size: var(--step-4);
+    }
+    .prose h3 {
+        font-size: var(--step-3);
+    }
+    .prose h4 {
+        font-size: var(--step-2);
+    }
+    .prose h5 {
+        font-size: var(--step-1);
+    }
+    .prose p {
+        font-size: var(--step-0);
+    }
+}
