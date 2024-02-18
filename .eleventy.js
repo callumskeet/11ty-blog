@@ -43,7 +43,7 @@ module.exports = (eleventyConfig) => {
                 if (!closed) {
                     throw new Error(`tag ${tagToken.getText()} not closed`);
                 }
-                super(token, remainTokens, liquid);
+                super(token, [], liquid);
                 this.templates = templates;
             }
         };
