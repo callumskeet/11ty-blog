@@ -1,16 +1,19 @@
 ---
 layout: layouts/base
 ---
-{% rendercontent 'partials/switcher' gap: 'gap-2' limit: 6 %}
+{% layoutcontent 'partials/switcher', gap: 'gap-2', limit: 6 %}
 <p>Rendered content</p>
 <p>Rendered content</p>
 <p>Rendered content</p>
 <p>Rendered content</p>
 <p>Rendered content</p>
 <p>Rendered content</p>
-
 {% block footer %}
 <span>in the footer</span>
 {% endblock %}
+{% endlayoutcontent %}
 
-{% endrendercontent %}
+<h1>Outside</h1>
+<h1>Outside</h1>
+<h1>Outside</h1>
+<h1>Outside</h1>

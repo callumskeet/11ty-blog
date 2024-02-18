@@ -26,14 +26,14 @@ module.exports = (eleventyConfig) => {
             },
         };
     });
-    eleventyConfig.addLiquidTag('rendercontent', function (engine) {
-        return class RenderContentTag extends LayoutTag {
+    eleventyConfig.addLiquidTag('layoutcontent', function (engine) {
+        return class LayoutContentTag extends LayoutTag {
             constructor(token, remainTokens, liquid) {
                 const templates = [];
                 let closed = false;
                 while (remainTokens.length) {
                     const token = remainTokens.shift();
-                    if (token.name === 'endrendercontent') {
+                    if (token.name === 'endlayoutcontent') {
                         closed = true;
                         break;
                     }
